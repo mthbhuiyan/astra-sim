@@ -59,6 +59,27 @@ class Sys : public Callable {
         std::map<int, int> queue_id_to_dimension;
         std::vector<UsageTracker> usage;
     };
+    // Base Configuration class
+    // ------------------------------------------------------------
+    class Configuration {
+        public:
+            Configuration( Sys* sys, 
+                std::string FileType
+            )
+            {
+                this->sys = sys;
+                this->FileType = FileType;
+            }
+        
+        Sys* sys;
+        std::string FileType;
+        
+        std::string GetConfigType();
+        void ConfigPanic(std::string msg);
+        bool ExtractJsonConfigParams(std::string filename);
+        bool ExtractYamlConfigParams(std::string filename);
+    };
+
     //---------------------------------------------------------------------------
 
     // Constructor / Destructor
@@ -257,6 +278,7 @@ class Sys : public Callable {
 
     // workload
     Workload* workload;
+    Configuration* configuration;
 
     // roofline model
     bool roofline_enabled;
