@@ -348,6 +348,18 @@ class Sys : public Callable {
     Tick last_scheduled_collective;
     double frequency;
 
+    // collect total memory data transmission
+    uint64_t mem_send_nums;
+    uint64_t mem_send_size;
+    uint64_t mem_recv_nums;
+    uint64_t mem_recv_size;
+
+    // collect total network data transmission
+    uint64_t net_send_nums;
+    uint64_t net_send_size;
+    uint64_t net_recv_nums;
+    uint64_t net_recv_size;
+
     // statistics
     bool trace_enabled;
 
