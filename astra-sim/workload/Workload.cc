@@ -220,7 +220,7 @@ void Workload::issue_replay(shared_ptr<Chakra::FeederV3::ETFeederNode> node) {
         runtime = node->runtime() * 1000;
     }
     // scale runtime according to system frequency, ensure at least 1 tic
-    runtime = static_cast<uint64_t>(max(1, round(runtime / sys->frequency)));
+    runtime = static_cast<uint64_t>(max(1.0, round(runtime / sys->frequency)));
     if (node->is_cpu_op()) {
         hw_resource->tics_cpu_ops += runtime;
     } else {
