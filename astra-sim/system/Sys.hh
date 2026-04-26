@@ -349,10 +349,10 @@ class Sys : public Callable {
     double frequency;
 
     // collect total memory data transmission
-    uint64_t mem_send_nums;
-    uint64_t mem_send_size;
-    uint64_t mem_recv_nums;
-    uint64_t mem_recv_size;
+    uint64_t mem_read_nums;
+    uint64_t mem_read_size;
+    uint64_t mem_write_nums;
+    uint64_t mem_write_size;
 
     // collect total network data transmission
     uint64_t net_send_nums;

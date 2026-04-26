@@ -47,8 +47,6 @@ void MemBus::send_from_NPU_to_MA(MemBus::Transmition transmition,
     if (model_shared_bus && transmition == Transmition::Usual) {
         NPU_side->request_read(bytes, processed, send_back, callable);
     } else {
-        sys->mem_send_nums++;
-        sys->mem_send_size += bytes;
         if (transmition == Transmition::Fast) {
             SharedBusStat* ss = new SharedBusStat(BusType::Shared, 0, 10, 0, 0);
             ss->sys_id = sys->id;
@@ -73,8 +71,6 @@ void MemBus::send_from_MA_to_NPU(MemBus::Transmition transmition,
     if (model_shared_bus && transmition == Transmition::Usual) {
         MA_side->request_read(bytes, processed, send_back, callable);
     } else {
-        sys->mem_recv_nums++;
-        sys->mem_recv_size += bytes;
         if (transmition == Transmition::Fast) {
             SharedBusStat* ss = new SharedBusStat(BusType::Shared, 0, 10, 0, 0);
             ss->sys_id = sys->id;

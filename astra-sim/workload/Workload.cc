@@ -572,11 +572,11 @@ void Workload::report() {
     LoggerFactory::get_logger("workload")
         ->info("sys[{}] finished"
             "\ncompute: total {} ns, active {} ns, idle {} ns"
-            "\nmemory:  send {} bytes / {} nums, recv {} bytes / {} nums"
+            "\nmemory: read {} bytes / {} nums, write {} bytes / {} nums"
             "\nnetwork: send {} bytes / {} nums, recv {} bytes / {} nums",
                sys->id, 
                curr_tick, hw_resource->tics_gpu_ops, curr_tick - hw_resource->tics_gpu_ops,
-               sys->mem_send_size, sys->mem_send_nums, sys->mem_recv_size, sys->mem_recv_nums,
+               sys->mem_read_size, sys->mem_read_nums, sys->mem_write_size, sys->mem_write_nums,
                sys->net_send_size, sys->net_send_nums, sys->net_recv_size, sys->net_recv_nums);
     stats->post_processing();
     stats->report();

@@ -203,10 +203,10 @@ Sys::Sys(int id,
 
     this->frequency = 1; //GHz
 
-    this->mem_send_nums = 0;
-    this->mem_send_size = 0;
-    this->mem_recv_nums = 0;
-    this->mem_recv_size = 0;
+    this->mem_read_nums = 0;
+    this->mem_read_size = 0;
+    this->mem_write_nums = 0;
+    this->mem_write_size = 0;
 
     this->net_send_nums = 0;
     this->net_send_size = 0;
