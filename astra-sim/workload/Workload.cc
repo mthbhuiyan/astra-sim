@@ -578,6 +578,10 @@ void Workload::report() {
                curr_tick, hw_resource->tics_gpu_ops, curr_tick - hw_resource->tics_gpu_ops,
                sys->mem_read_size, sys->mem_read_nums, sys->mem_write_size, sys->mem_write_nums,
                sys->net_send_size, sys->net_send_nums, sys->net_recv_size, sys->net_recv_nums);
+    LoggerFactory::get_perf_logger()->info("{},{},{},{},{},{},{},{},{},{},{}", 
+        sys->id, hw_resource->tics_gpu_ops, curr_tick - hw_resource->tics_gpu_ops,
+        sys->mem_read_size, sys->mem_read_nums, sys->mem_write_size, sys->mem_write_nums,
+        sys->net_send_size, sys->net_send_nums, sys->net_recv_size, sys->net_recv_nums);
     stats->post_processing();
     stats->report();
     if (this->sys->track_local_mem) {
